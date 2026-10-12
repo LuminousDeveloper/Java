@@ -1,7 +1,6 @@
 Nazwa projektu: System Zarządzania Magazynem Sklepu z Elektroniką
 
-Opis działania:
-Program służy do zarządzania stanem magazynowym w sklepie z elektroniką. Umożliwia podgląd dostępnego sprzętu, symulację sprzedaży, przyjmowanie dostaw towaru oraz zmianę cen urządzeń za pomocą interaktywnego menu w konsoli z wykorzystaniem klasy Scanner.
+Opis działania: Program służy do zarządzania stanem magazynowym w sklepie z elektroniką. Umożliwia podgląd dostępnego sprzętu, symulację sprzedaży, przyjmowanie dostaw towaru oraz zmianę cen urządzeń za pomocą interaktywnego menu w konsoli z wykorzystaniem klasy Scanner.
 
 Struktura i zawartość plików (.java):
 
@@ -32,8 +31,8 @@ Działanie:
 - Tworzy obiekty klas Laptop oraz Smartfon z początkowymi danymi i stanem magazynowym.
 - Tworzy obiekt Scanner do odczytywania danych z klawiatury.
 - Uruchamia pętlę wyświetlającą menu z opcjami:
-1. Wyświetl stan magazynu (wywołuje metody wyswietlInformacje() dla laptopa i smartfona).
-2. Sprzedaj laptopa (pobiera ze Scanner liczbę sztuk do sprzedania i wywołuje metodę sprzedaj()).
-3. Przyjmij dostawę smartfonów (pobiera ze Scanner liczbę dostarczonych sztuk i wywołuje metodę dostawa()).
-4. Zmień cenę laptopa lub smartfona (pobiera nową kwotę ze Scanner i przypisuje ją do pola cena).
-5. Zakończ działanie programu.
+  1. Wyświetl stan magazynu (wywołuje metody wyswietlInformacje() dla laptopa i smartfona).
+  2. Sprzedaj laptopa (pobiera ze Scanner liczbę sztuk do sprzedania i wywołuje metodę sprzedaj()).
+  3. Przyjmij dostawę smartfonów (pobiera ze Scanner liczbę dostarczonych sztuk i wywołuje metodę dostawa()).
+  4. Zmień cenę laptopa lub smartfona (pobiera nową kwotę ze Scanner i przypisuje ją do pola cena).
+  5. Zakończ działanie programu.
