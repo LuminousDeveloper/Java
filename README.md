@@ -1,38 +1,102 @@
-Nazwa projektu: System Zarządzania Magazynem Sklepu z Elektroniką
+# System Zarządzania Magazynem Sklepu z Elektroniką
 
-Opis działania: Program służy do zarządzania stanem magazynowym w sklepie z elektroniką. Umożliwia podgląd dostępnego sprzętu, symulację sprzedaży, przyjmowanie dostaw towaru oraz zmianę cen urządzeń za pomocą interaktywnego menu w konsoli z wykorzystaniem klasy Scanner.
+## Opis projektu
 
-Struktura i zawartość plików (.java):
+Program służy do zarządzania stanem magazynowym w sklepie z elektroniką. Umożliwia podgląd dostępnego sprzętu, symulację sprzedaży, przyjmowanie dostaw towaru oraz zmianę cen urządzeń za pomocą interaktywnego menu w konsoli z wykorzystaniem klasy `Scanner`.
 
-1. Plik SprzetElektroniczny.java (Klasa bazowa / Superclass)
-Opis: Przechowuje podstawowe dane wspólne dla całego sprzętu elektronicznego w sklepie.
-Pola danych: nazwa (tekst), cena (liczba), ilosc (liczba sztuk w magazynie).
-Konstruktor: Ustawia nazwę, cenę oraz ilość sztuk za pomocą słowa kluczowego this.
-Metody:
-- wyswietlInformacje(): Wyświetla nazwę, cenę i obecny stan magazynowy.
-- sprzedaj(int sztuki): Odejmuje podaną liczbę sztuk od stanu magazynowego, jeśli na stanie jest wystarczający zapas.
-- dostawa(int sztuki): Zwiększa liczbę dostępnych sztuk w magazynie o podaną wartość.
+## Struktura projektu
 
-2. Plik Laptop.java (Pierwsza klasa pochodna / Subclass)
-Opis: Klasa reprezentująca komputery przenośne, która dziedziczy po klasie SprzetElektroniczny za pomocą słowa kluczowego extends.
-Dodatkowe pola danych: ramGb (liczba całkowita określająca pamięć RAM w GB).
-Konstruktor: Przypisuje wartości dla nazwy, ceny, ilości oraz pamięci RAM.
-Metody: Nadpisuje (override) metodę wyswietlInformacje(), aby obok bazowych danych wyświetlać również ilość pamięci RAM.
+Projekt składa się z czterech plików Java:
 
-3. Plik Smartfon.java (Druga klasa pochodna / Subclass)
-Opis: Klasa reprezentująca telefony, która dziedziczy po klasie SprzetElektroniczny.
-Dodatkowe pola danych: pojemnoscBaterii (liczba całkowita w mAh).
-Konstruktor: Przypisuje wartości dla nazwy, ceny, ilości oraz pojemności baterii.
-Metody: Nadpisuje metodę wyswietlInformacje(), aby dodawać informację o pojemności baterii do opisu smartfona.
+- `SprzetElektroniczny.java` — klasa bazowa.
+- `Laptop.java` — klasa pochodna reprezentująca laptopy.
+- `Smartfon.java` — klasa pochodna reprezentująca smartfony.
+- `Main.java` — klasa główna uruchamiająca program.
 
-4. Plik Main.java (Klasa startowa z metodą main)
-Opis: Główny punkt startowy programu zawarty w metodzie main().
-Działanie:
-- Tworzy obiekty klas Laptop oraz Smartfon z początkowymi danymi i stanem magazynowym.
-- Tworzy obiekt Scanner do odczytywania danych z klawiatury.
-- Uruchamia pętlę wyświetlającą menu z opcjami:
-  1. Wyświetl stan magazynu (wywołuje metody wyswietlInformacje() dla laptopa i smartfona).
-  2. Sprzedaj laptopa (pobiera ze Scanner liczbę sztuk do sprzedania i wywołuje metodę sprzedaj()).
-  3. Przyjmij dostawę smartfonów (pobiera ze Scanner liczbę dostarczonych sztuk i wywołuje metodę dostawa()).
-  4. Zmień cenę laptopa lub smartfona (pobiera nową kwotę ze Scanner i przypisuje ją do pola cena).
-  5. Zakończ działanie programu.
+## 1. SprzetElektroniczny.java
+
+### Opis
+Klasa bazowa przechowująca podstawowe informacje wspólne dla wszystkich urządzeń elektronicznych.
+
+### Pola danych
+- `nazwa` — nazwa urządzenia.
+- `cena` — cena urządzenia.
+- `ilosc` — liczba sztuk dostępnych w magazynie.
+
+### Konstruktor
+Ustawia nazwę, cenę oraz ilość urządzenia za pomocą słowa kluczowego `this`.
+
+### Metody
+- `wyswietlInformacje()` — wyświetla nazwę, cenę i aktualny stan magazynowy.
+- `sprzedaj(int sztuki)` — zmniejsza stan magazynowy, jeśli dostępna liczba sztuk jest wystarczająca.
+- `dostawa(int sztuki)` — zwiększa liczbę sztuk dostępnych w magazynie.
+
+## 2. Laptop.java
+
+### Opis
+Klasa reprezentująca laptopy. Dziedziczy po klasie `SprzetElektroniczny` za pomocą słowa kluczowego `extends`.
+
+### Dodatkowe pole danych
+- `ramGb` — ilość pamięci RAM w gigabajtach (GB).
+
+### Konstruktor
+Ustawia nazwę, cenę, ilość sztuk oraz ilość pamięci RAM laptopa.
+
+### Metody
+- `wyswietlInformacje()` — nadpisuje metodę z klasy bazowej i wyświetla podstawowe informacje o laptopie oraz ilość pamięci RAM.
+
+## 3. Smartfon.java
+
+### Opis
+Klasa reprezentująca smartfony. Dziedziczy po klasie `SprzetElektroniczny`.
+
+### Dodatkowe pole danych
+- `pojemnoscBaterii` — pojemność baterii wyrażona w miliamperogodzinach (mAh).
+
+### Konstruktor
+Ustawia nazwę, cenę, ilość sztuk oraz pojemność baterii smartfona.
+
+### Metody
+- `wyswietlInformacje()` — nadpisuje metodę z klasy bazowej i wyświetla podstawowe informacje o smartfonie oraz pojemność jego baterii.
+
+## 4. Main.java
+
+### Opis
+Klasa główna zawierająca metodę `main()`, która uruchamia program.
+
+### Działanie programu
+
+1. Tworzy obiekty klas `Laptop` i `Smartfon` z początkowymi danymi.
+2. Tworzy obiekt klasy `Scanner`, który umożliwia pobieranie danych z klawiatury.
+3. Wyświetla menu interaktywne w konsoli.
+4. Wykonuje operacje wybrane przez użytkownika.
+
+### Opcje menu
+
+| Opcja | Funkcja |
+|-------|---------|
+| 1 | Wyświetlenie stanu magazynu laptopów i smartfonów. |
+| 2 | Sprzedaż wybranej liczby laptopów. |
+| 3 | Przyjęcie dostawy smartfonów. |
+| 4 | Zmiana ceny laptopa lub smartfona. |
+| 5 | Zakończenie działania programu. |
+
+## Wykorzystane zagadnienia Java
+
+Projekt wykorzystuje następujące elementy programowania obiektowego i języka Java:
+
+- **Klasy i obiekty** — reprezentowanie urządzeń elektronicznych.
+- **Dziedziczenie** — wykorzystanie słowa kluczowego `extends`.
+- **Nadpisywanie metod** — dostosowanie metody `wyswietlInformacje()` w klasach pochodnych.
+- **Konstruktory** — inicjalizacja obiektów.
+- **Słowo kluczowe `this`** — odwoływanie się do pól aktualnego obiektu.
+- **Klasa `Scanner`** — pobieranie danych od użytkownika.
+- **Pętle i instrukcje warunkowe** — obsługa menu i wykonywanie operacji.
+
+## Uruchomienie programu
+
+1. Umieść wszystkie cztery pliki `.java` w tym samym katalogu.
+2. Skompiluj pliki poleceniem:
+
+   ```bash
+   javac SprzetElektroniczny.java Laptop.java Smartfon.java Main.java
